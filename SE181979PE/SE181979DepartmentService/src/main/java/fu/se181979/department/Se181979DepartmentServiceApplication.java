@@ -1,4 +1,4 @@
-package com.minhtriet.se3979.se181979departmentservice;
+package fu.se181979.department;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
