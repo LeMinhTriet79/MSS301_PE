@@ -43,6 +43,16 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     //                    từ dto sang entity, từ client thành entity dòng trong table
     private Department toEntity(DepartmentDTO dto) {
+        Department entity = new Department();
+        entity.setId(dto.getId());
+        entity.setCode(dto.getCode());
+        entity.setName(dto.getName());
+        entity.setLocation(dto.getLocation());
+        entity.setStatus(dto.getStatus());
+        entity.setEffectiveDate(dto.getEffectiveDate());
+        entity.setParentId(dto.getParentId());
+
+        return entity;
 
     }
 }
