@@ -1,4 +1,4 @@
-package fu.se181979.employeeservice.dto;
+package fu.se181979.departmentservice.dto;
 
 
 import java.time.ZoneOffset;
