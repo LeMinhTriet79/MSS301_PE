@@ -1,6 +1,6 @@
-package fu.se181979.departmentservice.config;
+package fu.se181979.employeeservice.config;
 
-import fu.se181979.departmentservice.dto.ApiResponseDTO;
+import fu.se181979.employeeservice.dto.ApiResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
