@@ -1,10 +1,10 @@
-package fu.se181979.departmentservice.dto;
+package fu.se181979.employeeservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Date;
+
 @Data
 public class DepartmentDTO {
     private Integer departmentId;

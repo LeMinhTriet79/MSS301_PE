@@ -1,22 +1,17 @@
-package fu.se181979.departmentservice.entity;
+package fu.se182638.department.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "departments")
 public class Department {
     @Id
@@ -50,7 +45,6 @@ public class Department {
     private String location;
 
     @Column(name = "parent_id")
-    private int parentId;
-
+    private Integer parentId;
 
 }
