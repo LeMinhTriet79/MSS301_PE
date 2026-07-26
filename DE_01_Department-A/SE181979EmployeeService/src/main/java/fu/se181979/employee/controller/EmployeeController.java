@@ -15,31 +15,35 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    // 1. CREATE EMPLOYEE
     @PostMapping
     public ResponseEntity<ApiResponseDTO> createEmployee(@RequestBody EmployeeDTO dto) {
         ApiResponseDTO response = employeeService.createEmployee(dto);
-
-        if (response.getStatus() == 1) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(response); // HTTP 201[cite: 3]
-        } else if (response.getStatus() == 0) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // HTTP 500[cite: 3]
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // HTTP 400[cite: 3]
-        }
+        if (response.getStatus() == 1) return ResponseEntity.status(HttpStatus.CREATED).body(response); // 201[cite: 16]
+        if (response.getStatus() == 0) return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500[cite: 16]
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // 400[cite: 16]
     }
 
-    // 2. GET EMPLOYEE DETAIL
     @GetMapping("/{employeeId}")
     public ResponseEntity<ApiResponseDTO> getEmployeeDetail(@PathVariable("employeeId") Integer employeeId) {
         ApiResponseDTO response = employeeService.getEmployeeDetail(employeeId);
+        if (response.getStatus() == 1) return ResponseEntity.status(HttpStatus.OK).body(response); // 200[cite: 16]
+        if (response.getStatus() == 4) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // 400[cite: 16]
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500[cite: 16]
+    }
 
-        if (response.getStatus() == 1) {
-            return ResponseEntity.status(HttpStatus.OK).body(response); // HTTP 200[cite: 3]
-        } else if (response.getStatus() == 4) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // HTTP 400[cite: 3]
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // HTTP 500[cite: 3]
-        }
+    @PutMapping("/{employeeId}")
+    public ResponseEntity<ApiResponseDTO> updateEmployee(@PathVariable("employeeId") Integer employeeId, @RequestBody EmployeeDTO dto) {
+        ApiResponseDTO response = employeeService.updateEmployee(employeeId, dto);
+        if (response.getStatus() == 1) return ResponseEntity.status(HttpStatus.OK).body(response); // 200[cite: 16]
+        if (response.getStatus() == 0) return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500[cite: 16]
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // 400[cite: 16]
+    }
+
+    @DeleteMapping("/{employeeId}")
+    public ResponseEntity<ApiResponseDTO> deactivateEmployee(@PathVariable("employeeId") Integer employeeId) {
+        ApiResponseDTO response = employeeService.deactivateEmployee(employeeId);
+        if (response.getStatus() == 1) return ResponseEntity.status(HttpStatus.OK).body(response); // 200[cite: 16]
+        if (response.getStatus() == 4) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response); // 400[cite: 16]
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // 500[cite: 16]
     }
 }
