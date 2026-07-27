@@ -1,0 +1,6 @@
+Profile: RESTAURANT_FOOD
+Generated baseline: 2026-07-20T14:23:44.042877200Z
+Manual specification audit: PASS
+Maven clean test: PASS (15 tests, 0 failures, 0 errors)
+Maven package: PASS (3/3 projects, JDK 21)
+Required before submission: read HUONG_DAN_TU_HOC_VA_GO_CODE.md and VERIFICATION.md, test against the local SQL Server, replace the sample student ID, then clean and zip each project separately.

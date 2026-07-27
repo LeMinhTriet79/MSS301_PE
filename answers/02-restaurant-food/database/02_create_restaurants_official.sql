@@ -1,0 +1,56 @@
+CREATE TABLE [dbo].[restaurants]
+(
+    [
+    restaurant_id] [
+    int]
+    IDENTITY
+(
+    1,
+    1
+) NOT NULL,
+    [address] [varchar]
+(
+    100
+) NOT NULL,
+    [open_date] [datetime2]
+(
+    7
+) NOT NULL,
+    [name] [varchar]
+(
+    100
+) NOT NULL,
+    [owner_name] [varchar]
+(
+    100
+) NOT NULL,
+    [phone] [varchar]
+(
+    11
+) NOT NULL,
+    [price_from] [int],
+    [price_to] [int],
+    [status] [varchar]
+(
+    10
+) NOT NULL,
+    [category_id] [int] NOT NULL
+    PRIMARY KEY CLUSTERED
+(
+[
+    restaurant_id]
+    ASC
+)
+    WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF)
+    ON [PRIMARY],
+    CONSTRAINT [UK979xvypjc2lwr1ia4kq77cko044] UNIQUE NONCLUSTERED
+(
+[
+    name]
+    ASC
+)
+    WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF)
+    ON [PRIMARY]
+    )
+    ON [PRIMARY]
+    GO

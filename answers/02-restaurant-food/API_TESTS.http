@@ -1,0 +1,99 @@
+### MSS301 Restaurant/Food - IntelliJ HTTP Client collection
+### Start Restaurant (8081), Food (8082), then Gateway (8080).
+### Run database/SEED_CATEGORIES_OPTIONAL.sql and replace IDs below with real IDs.
+
+@gateway = http://localhost:8080
+@restaurantDirect = http://localhost:8081
+@foodDirect = http://localhost:8082
+@restaurantId = 1
+@foodId = 1
+
+### 1. List categories through the gateway
+GET {{gateway}}/api/categories?page=0&size=10
+Accept: application/json
+
+### 2. Create restaurant (R04 ISO-8601 form)
+POST {{gateway}}/api/restaurants
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "BBQ Hoa Lac",
+  "owner": "ABC Company",
+  "priceFrom": 2000,
+  "priceTo": 3000,
+  "phone": "01234567890",
+  "address": "Hoa Lac Park",
+  "openDate": "2026-03-14T10:00:00Z",
+  "status": "ACTIVE",
+  "categoryId": 1
+}
+
+### 3. Get restaurant detail
+GET {{gateway}}/api/restaurants/{{restaurantId}}
+Accept: application/json
+
+### 4. Partially update restaurant: omitted fields stay unchanged
+PUT {{gateway}}/api/restaurants/{{restaurantId}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "owner": "New Owner Company",
+  "priceTo": 3500
+}
+
+### 5. Filter restaurant list
+GET {{gateway}}/api/restaurants?page=0&size=10&name=BBQ&ownerName=Owner
+Accept: application/json
+
+### 6. Create food; restaurantId is checked through OpenFeign
+POST {{gateway}}/api/foods
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Pho Bo",
+  "price": 50000,
+  "ingredients": "Beef, rice noodle, herbs",
+  "restaurantId": {{restaurantId}},
+  "status": "ACTIVE"
+}
+
+### 7. Get FoodResponseDTO detail with nested RestaurantDTO
+GET {{gateway}}/api/foods/{{foodId}}
+Accept: application/json
+
+### 8. Partially update food
+PUT {{gateway}}/api/foods/{{foodId}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "price": 55000,
+  "ingredients": "Beef, rice noodle, herbs, onion"
+}
+
+### 9. Filter FoodListDTO
+GET {{gateway}}/api/foods?page=0&size=10&name=Pho&ingredients=beef
+Accept: application/json
+
+### 10. Deactivate food
+DELETE {{gateway}}/api/foods/{{foodId}}
+Accept: application/json
+
+### 11. Deactivate restaurant
+DELETE {{gateway}}/api/restaurants/{{restaurantId}}
+Accept: application/json
+
+### 12. Expected status=4 / HTTP 400 for a missing restaurant
+GET {{gateway}}/api/restaurants/999999
+Accept: application/json
+
+### 13. Direct-service URL for debugging gateway-independent behavior
+GET {{restaurantDirect}}/api/categories?page=0&size=10
+Accept: application/json
+
+### 14. Direct Food service health-by-API check
+GET {{foodDirect}}/api/foods?page=0&size=10
+Accept: application/json

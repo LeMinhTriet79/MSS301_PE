@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/02-restaurant-food/SE180211FoodService/pom.xml" />
+        <option value="$PROJECT_DIR$/02-restaurant-food/SE180211FoodyGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/02-restaurant-food/SE180211RestaurantService/pom.xml" />
+        <option value="$PROJECT_DIR$/01-department-employee/SE180211EmployeeGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/01-department-employee/SE180211EmployeeService/pom.xml" />
+        <option value="$PROJECT_DIR$/01-department-employee/SE180211DepartmentService/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="25" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

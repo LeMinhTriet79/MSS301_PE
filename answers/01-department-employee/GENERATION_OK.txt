@@ -1,0 +1,5 @@
+Profile: DEPARTMENT_EMPLOYEE
+Generated: 2026-07-20T14:23:42.576896400Z
+Structural validation: PASS
+Manual audit and Maven tests were completed after generation.
+See VERIFICATION_REPORT.md for the current result; this file only records the original generator stage.

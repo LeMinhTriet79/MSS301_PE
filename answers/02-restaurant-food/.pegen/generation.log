@@ -1,0 +1,6 @@
+PEGen: using config 'C:\Users\ADMIN\AppData\Local\Temp\mss301-pegen-3672668749266001405\runtime\pe-config.generated.properties'
+PEGen: generated into 'C:\Users\ADMIN\AppData\Local\Temp\mss301-pegen-3672668749266001405\output'
+  - database/MSS301_2026_PE.sql
+  - SE180211RestaurantService  (port 8081)
+  - SE180211FoodService  (port 8082, OpenFeign -> SE180211RestaurantService)
+  - SE180211FoodyGateway  (port 8080)

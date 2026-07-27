@@ -1,0 +1,45 @@
+CREATE TABLE [dbo].[Foods]
+(
+    [
+    food_id]
+    INT
+    IDENTITY
+(
+    1,
+    1
+) NOT NULL, -- Auto generated
+    [name] NVARCHAR
+(
+    100
+) NOT NULL,
+    [price] INT NOT NULL,
+    [ingredient] NVARCHAR
+(
+    500
+) NOT NULL,
+    [restaurant_id] INT NOT NULL, -- Foreign key
+    [status] NVARCHAR
+(
+    20
+) NOT NULL,
+
+    -- Constraints
+    CONSTRAINT [PK_Foods] PRIMARY KEY CLUSTERED
+(
+[
+    food_id]
+    ASC
+),
+
+    -- Check constraint cho Status (ACTIVE, INACTIVE, ...)
+    CONSTRAINT [CK_Foods_Status] CHECK
+(
+    [
+    status]
+    IN
+(
+    'ACTIVE',
+    'INACTIVE'
+))
+    );
+GO
