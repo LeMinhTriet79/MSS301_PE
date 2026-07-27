@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Se181979XGatewayApplication {
+public class Se181979FoodyGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Se181979XGatewayApplication.class, args);
+        SpringApplication.run(Se181979FoodyGatewayApplication.class, args);
     }
 
 }
