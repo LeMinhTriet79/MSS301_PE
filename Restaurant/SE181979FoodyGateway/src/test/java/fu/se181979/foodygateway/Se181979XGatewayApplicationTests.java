@@ -1,10 +1,10 @@
-package fu.se181979.s1;
+package fu.se181979.foodygateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Se181979S1ServiceApplicationTests {
+class Se181979XGatewayApplicationTests {
 
     @Test
     void contextLoads() {
