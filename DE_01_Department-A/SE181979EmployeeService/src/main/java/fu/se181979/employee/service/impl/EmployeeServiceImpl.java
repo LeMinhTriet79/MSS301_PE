@@ -27,9 +27,16 @@ public class EmployeeServiceImpl implements EmployeeService {
             if(dto.getDepartment() != null) {
                 depId = dto.getDepartment().getDepartmentId();
             }
-            ApiResponseDTO deptResponse = departmentClient.getDepartmentByID(depId);
+            ApiResponseDTO deptResponse = null;
+            try {
+                deptResponse = departmentClient.getDepartmentByID(depId);
+            } catch (Exception e) {
+                // Nếu cổng 8081 trả về 400, Feign sẽ văng lỗi. Ta bắt tại đây và báo không tìm thấy!
+                return new ApiResponseDTO(4, null);
+            }
+
             if (deptResponse == null || deptResponse.getStatus() != 1) {
-                return new ApiResponseDTO(4, null); // Status 4: Department ID is not found[cite: 16]
+                return new ApiResponseDTO(4, null);
             }
 
             Employee employee = new Employee();
