@@ -8,11 +8,11 @@
         <version>4.0.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>fu.se181979.xgateway</groupId>
-    <artifactId>SE181979-x-Gateway</artifactId>
+    <groupId>fu.se181979.s1</groupId>
+    <artifactId>SE181979RestaurantService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SE181979-x-Gateway</name>
-    <description>SE181979-x-Gateway</description>
+    <name>SE181979-s1-Service</name>
+    <description>SE181979-s1-Service</description>
     <url/>
     <licenses>
         <license/>
